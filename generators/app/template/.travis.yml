@@ -1,0 +1,31 @@
+language: node_js
+node_js:
+  - '0.12.2'
+cache:
+  directories:
+    - node_modules
+
+services:
+  - mongodb
+
+sudo: required
+
+env:
+  global:
+    - NEVER_SAY_ONLY=true # prevent {it,describe}.only blocks
+    FIXME add a secure variable for NPM_AUTH using `travis encrypt`
+
+install: "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/npm-install.sh | sh"
+
+before_script:
+  - "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chrome.sh | sh"
+  - "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chromedriver.sh | sh"
+  - "goodeggs-assets --prod"
+
+script: gulp spec
+
+notifications:
+  webhooks:
+    urls:
+      # Add your Ecru project webhook here
+

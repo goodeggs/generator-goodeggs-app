@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# You have these environment variables available:
+#   $build_dir is your build directory, where your product's source is
+#   $cache_dir is your cache directory, you can save things here to live from one build to the next
+#   $ECRU_LIB ecru helper functions live here
+#   $ECRU_PROJECT_ID ecru internal project identifier
+#   $ECRU_BUILD_ID ecru internal build identifier
+#   $ECRU_BRANCH name of the git branch of this build
+#   $ECRU_COMMIT git commit of this build
+#   $ECRU_LIVE_COMMIT the current live commit, more or less equivalent to last build commit.
+
+# Import ecru helper functions
+source $ECRU_LIB/ecrurc
+
+build_dir=$1
+cache_dir=$2
+heroku_app_name="goodeggs-<%= basename %>"
+
+# enable rubygems
+export GEM_HOME=$cache_dir/ruby_gems
+export PATH="$GEM_HOME/bin:$PATH"
+
+
+echo "Restoring cache"
+cache_restore node_modules
+export PATH="$build_dir/node_modules/.bin:$PATH"
+
+
+# https://github.com/travis-ci/dpl
+gem install dpl
+
+(
+  cd $build_dir
+  NODE_ENV=development travis npm-install.sh
+  goodeggs-assets --prod
+  echo "module.exports = \"${ECRU_COMMIT}\";" > ./build/version.js
+)
+
+cd $build_dir
+dpl --provider=heroku \
+  --strategy=api \
+  --skip_cleanup \
+  --version=${ECRU_COMMIT} \
+  --api-key=$HEROKU_API_KEY \
+  --app=$heroku_app_name
+
+
+echo "Caching node_modules directory for future builds"
+cache_save node_modules

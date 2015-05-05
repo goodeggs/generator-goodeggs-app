@@ -1,0 +1,47 @@
+{
+  "name": "<%= basename %>",
+  "description": "<%= description %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "*",
+    "coffee-script": "^1.9.2",
+    "convict": "*",
+    "express": "*",
+    "fibers": "*",
+    "fibrous": "*",
+    "fluxible": "^0.4.6",
+    "fluxible-plugin-fetchr": "^0.3.0",
+    "glob": "*",
+    "goodeggs-assets": "^1.1.0",
+    "goodeggs-logger": "*",
+    "goodeggs-stats": "*",
+    "gulp": "*",
+    "keymirror": "^0.1.1",
+    "lodash": "^3.7.0",
+    "once-upon": "*",
+    "mongoose": "^4.0.2",
+    "mongoose-connection-manager": "^0.1.2",
+    "teacup": "*",
+    "react": "^0.13.2",
+    "coffee-react": "^3.1.0",
+    "coffee-react-cache": "^1.0.0"
+  },
+  "devDependencies": {
+    "goodeggs-spec-helpers": "*",
+    "gulp-spawn-mocha": "*",
+    "mocha": "*",
+    "mocha-fibers": "*",
+    "gulp-nodemon": "*",
+    "gulp-util": "*",
+    "request": "*",
+    "run-sequence": "*",
+    "wd": "*"
+  },
+  "scripts": {
+    "test": "gulp spec"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "private": true
+}
