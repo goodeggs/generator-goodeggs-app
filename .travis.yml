@@ -12,3 +12,13 @@ before_script:
   - "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chrome.sh | sh"
   - "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chromedriver.sh | sh"
 
+deploy:
+  provider: npm
+  email: open-source@goodeggs.com
+  api_key:
+    secure: "T1651RBu//sZmxOUYj18vUc17JYd9JzOEMYZW64RzbaYEllVhC613K0/2pT90Srn/E7krGRAzBHvtRv0dOLp+xlGr1yLcF7rOl/Xj00gLzuR9Mnu7dXefK95W27N6zeooZ/hHY/QkCA8CtIwT73CbAYyK956l4Szqng3AXHbf16XBq2tnBqtk8NrM8jYfGp+toGEpbyuS9MiqxfoMwOMtFqwJAGze13+4okEnfmI4Zb6zI7SMF9QkoJBoYLshFL/iWl1N7SDFM/3W6uCPLGMlKRcLC5UW2PlEFspk7TRP2uDuFTeC/7artwlLsESAJ4frZx+Cun1nySI4GvEXxNWgM0rW/W+axyn5g+AyC7iLGXUOzpVE3V89QqXR4ctXrYRfb3XjL1NO8dE/6w91pak0sESDo6l/YcZIlVczvwwG8BuOlguBBV52g4y4NP8bJ4iqMfgAENCzDH29BatEI514HADh4BGchXVh/ck4+Ljs/+jv09D+NU0f2PrQLukPdmN8D0kkVsmTDI2/f5YyNUg84HutQHVx6P2UL2ypU+ZQBK5Em4xB+gk0YnmeNhdlOVkhHh1R3jzglq6pG0zkzzrx9i5BNCQx6BxMaaonL5dMzhBX30KDZYvCUZscTb92Ry32jQKSOR28YEBE+iP6Ac1v6oNeGdcClLmjnLbKiV/buU="
+  clean_up: false
+  on:
+    tags: true
+    all_branches: true
+
