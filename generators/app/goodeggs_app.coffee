@@ -13,6 +13,7 @@ module.exports = class GoodeggsAppGenerator extends yeoman.generators.Base
     super
     @sourceRoot path.join(__dirname, 'template')
     @basename = path.basename process.cwd()
+    @_skipInstall = options['skip-install']
 
   prompting: ->
     done = @async()
@@ -26,7 +27,9 @@ module.exports = class GoodeggsAppGenerator extends yeoman.generators.Base
       }
     ]
 
-    @prompt prompts, ({@description}) -> done()
+    @prompt prompts, (responses) =>
+      @[k] = v for k, v of responses
+      done()
 
   writing:
     files: ->
@@ -34,13 +37,13 @@ module.exports = class GoodeggsAppGenerator extends yeoman.generators.Base
 
   install:
     symlink: ->
-      done = @async()
-      fs.symlink '.', @destinationPath('src/node_modules'), done
+      fs.symlink '.', @destinationPath('src/node_modules'), @async()
 
     git: ->
-      done = @async()
-      git 'init', done
+      return if @_skipInstall
+      git 'init', @async()
 
     npm: ->
+      return if @_skipInstall
       @npmInstall()
 
