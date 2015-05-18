@@ -27,6 +27,7 @@
     "coffee-react-cache": "^1.0.0"
   },
   "devDependencies": {
+    "goodeggs-assets-cli": "^1.2.0",
     "goodeggs-spec-helpers": "*",
     "gulp-spawn-mocha": "*",
     "mocha": "*",

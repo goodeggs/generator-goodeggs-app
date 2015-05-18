@@ -25,3 +25,11 @@ module.exports =
     prod: 'build/public'
     manifest: 'build/rev-manifest.json'
 
+  rollbar:
+    accessToken: process.env.ROLLBAR_ACCESS_TOKEN
+    version: process.env.ECRU_COMMIT
+
+  hosts: [
+    # '//your.site.or.cdn'
+  ]
+
