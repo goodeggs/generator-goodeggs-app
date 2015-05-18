@@ -7,6 +7,10 @@ git = (args..., done) ->
   child = spawn 'git', args, stdio: 'inherit'
   child.on 'close', done
 
+npm = (args..., done) ->
+  child = spawn 'npm', args, stdio: 'inherit'
+  child.on 'close', done
+
 module.exports = class GoodeggsAppGenerator extends yeoman.generators.Base
 
   constructor: (args, options, config) ->
@@ -45,5 +49,9 @@ module.exports = class GoodeggsAppGenerator extends yeoman.generators.Base
 
     npm: ->
       return if @_skipInstall
-      @npmInstall()
+      npm 'install', @async()
+
+    npmShrinkwrap: ->
+      return if @_skipInstall
+      npm 'shrinkwrap', @async()
 
