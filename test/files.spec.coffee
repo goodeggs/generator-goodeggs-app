@@ -17,6 +17,7 @@ describe 'goodeggs-app generated files', ->
         '.editorconfig'
         '.gitignore'
         '.travis.yml'
+        '.npmrc'
       ]
       done()
 
