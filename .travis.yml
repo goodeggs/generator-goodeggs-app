@@ -1,3 +1,14 @@
 language: node_js
 node_js:
-  - '0.10'
+  - '0.12'
+
+sudo: required # Chrome install needs apt
+
+env:
+  global:
+    - secure: "ZhufWipskpO2TQ/JaNO0JiktkThIonxTB6NCdY/vugxEMSbET81CxZJAFEuwzQsyyHazf9pyMYoL6Jv0SeRmM1QNQH2ZvaHfZseri9pQOndRohKJRCECeIzpT6tL0ngny0fBJeFAa2HNiuCPJrLtvwDJHYcbH4nv/7a/XI7T1XYeF8oocBlzLi9SSDn4CmK+t+B2kbZH1qjvn7dOquIg1f5uRx8l5JPC1LpoDkV+vo5HEgwIMxfRMJR6gS5vzCxDOMJc3EGR1wbIooO4Azc1uBHhMhPgkDRBsEAfE5b6dPXLDbjy9tsPRqVo9Is+P03GZ/PwoP95/BM5nmWR5uArLndwAiySbxjtY5zCXvQsCM+FCjAts1BoNvVwZE9G7wH/DH+nvZKthN1WNgHmAhpFSEJyKIUn9wIe0X+ZKhSF9sAT5QesqSqTHo+81LxRa65+enuLnDIw78zn+VW+UjgjbPFAsbX1f1wmuuFapSesJS0JAt48MXXamqxIZADzgC3aeFzL+DyfQUdtRM1BbeV0iBJwgbfB9WotNc0v8sPMsBhD6uAtF1HZFB2IO8UpjHrioYvUSVCXGmwP78XWHlNhlm6rh41bo1Hrvo3vh++n0bV3SJ+L8/T8WKgXh7SVp4y8UJXGQwiMba6dO/Fn64U9n6VhKteCjdyeMcg+nWUXJsw=" # NPM2_AUTH
+
+before_script:
+  - "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chrome.sh | sh"
+  - "curl -sSL https://github.com/goodeggs/travis-utils/raw/master/chromedriver.sh | sh"
+
