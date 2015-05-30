@@ -11,7 +11,7 @@
     "fibrous": "*",
     "fluxible": "^0.4.6",
     "fluxible-plugin-fetchr": "^0.3.0",
-    "glob": "*",
+    "glob": "^5.0.9",
     "goodeggs-assets": "^1.1.0",
     "goodeggs-logger": "*",
     "goodeggs-stats": "*",
@@ -27,15 +27,22 @@
     "coffee-react-cache": "^1.0.0"
   },
   "devDependencies": {
-    "goodeggs-assets-cli": "^1.2.0",
-    "goodeggs-spec-helpers": "*",
+    "async": "^1.0.0",
+    "goodeggs-assets-cli": "^1.3.1",
+    "goodeggs-spec-helpers": "^0.7.0",
     "gulp-spawn-mocha": "*",
     "mocha": "*",
     "mocha-fibers": "*",
     "gulp-nodemon": "*",
     "gulp-util": "*",
+    "karma": "^0.12.32",
+    "karma-mocha": "^0.1.10",
+    "karma-source-map-support": "^1.0.0",
+    "karma-spec-reporter": "0.0.19",
+    "karma-webdriver-launcher": "^1.0.3",
     "request": "*",
     "run-sequence": "*",
+    "unionized": "^4.0.0-3",
     "wd": "*"
   },
   "scripts": {

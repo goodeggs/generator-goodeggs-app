@@ -3,14 +3,10 @@ Word = require 'domain-models/word'
 
 module.exports = wordService =
 
-  name: 'word'
+  name: 'word_service'
 
   read: fibrous (req, resource, params, config) ->
-    switch resource
-      when 'word.findAll'
-        Word.find().lean().sync.exec()
-      else
-        throw new Error("resource #{resource} not found")
+    Word.find().lean().sync.exec()
 
-  # other methods: create, update, delete
+module.exports = wordService
 

@@ -1,11 +1,10 @@
 require '../../server/modules/spec-helpers/e2e'
-Word = require 'domain-models/word'
 
-describe 'welcome', ->
+flow 'welcome', ->
   
   before ->
-    Word.sync.remove()
-    Word.sync.create text: 'the bird'
+    Factories.word.sync.createAndSave
+      text: 'the bird'
 
   it 'renders the word', ->
     @browser.sync.get '/'

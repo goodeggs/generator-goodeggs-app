@@ -1,4 +1,13 @@
-require './node'
+unless describe?
+  {specExec} = require 'goodeggs-spec-helpers/runner'
+  specExec (specModule) -> ['gulp', 'spec:e2e', "--file=#{specModule.filename}"]
+
+require './index'
+require 'goodeggs-spec-helpers/node_helper'
+
+global.Factories = require './factories'
+
+database = require './database'
 
 webdriverBuilder = require 'wd'
 
@@ -16,4 +25,15 @@ after ->
   @timeout 0
   @browser.sync.quit()
   app.sync.stop()
+
+global.flow = (message, body) ->
+  describe message, ->
+    before ->
+      @sinon = sinon.sandbox.create()
+      database.sync.reset()
+
+    after ->
+      @sinon.restore()
+
+    body()
 
