@@ -12,29 +12,16 @@
 # Import ecru helper functions
 source $ECRU_LIB/ecrurc
 
-build_dir=$1
-cache_dir=$2
 heroku_app_name="goodeggs-<%= basename %>"
-
-# enable rubygems
-export GEM_HOME=$cache_dir/ruby_gems
-export PATH="$GEM_HOME/bin:$PATH"
-
 
 echo "Restoring cache"
 cache_restore node_modules
 export PATH="$build_dir/node_modules/.bin:$PATH"
 
-
-# https://github.com/travis-ci/dpl
-gem install dpl
-
-(
-  cd $build_dir
-  NODE_ENV=development travis npm-install.sh
-  goodeggs-assets --prod
-  echo "module.exports = \"${ECRU_COMMIT}\";" > ./build/version.js
-)
+cd $build_dir
+NODE_ENV=development travis npm-install.sh
+goodeggs-assets --prod
+echo "module.exports = \"${ECRU_COMMIT}\";" > ./build/version.js
 
 cd $build_dir
 dpl --provider=heroku \
