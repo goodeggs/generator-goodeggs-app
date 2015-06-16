@@ -53,5 +53,5 @@ module.exports = class GoodeggsAppGenerator extends yeoman.generators.Base
 
     npmShrinkwrap: ->
       return if @_skipInstall
-      npm 'shrinkwrap', @async()
+      npm 'shrinkwrap', '--dev', @async()
 
