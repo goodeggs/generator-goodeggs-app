@@ -1,5 +1,5 @@
 {PropTypes} = React = require 'react'
-{connectToStores} = require 'fluxible/addons'
+{provideContext, connectToStores} = require 'fluxible/addons'
 
 class WelcomePage extends React.Component
   @propTypes:
@@ -16,7 +16,7 @@ class WelcomePage extends React.Component
       </ul>
     </div>
 
-WelcomePage = connectToStores WelcomePage, ['WordStore'], (stores) ->
+WelcomePage = provideContext connectToStores WelcomePage, ['WordStore'], (stores) ->
   return {
     words: stores.WordStore.getAll()
   }

@@ -15,6 +15,7 @@ class WordStore extends BaseStore
 
   onLoadAllWordsSuccess: (words) ->
     @words = _(words).indexBy('_id').merge(@words).value()
+    @emitChange()
 
   getAll: ->
     _.values(@words)
