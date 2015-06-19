@@ -1,25 +1,16 @@
-{PropTypes} = React = require 'react'
-{provideContext, connectToStores} = require 'fluxible/addons'
+React = require 'react'
+{provideContext} = require 'fluxible/addons'
+WordList = require 'ui-components/word_list'
 
 class WelcomePage extends React.Component
-  @propTypes:
-    words: PropTypes.array.isRequired
 
   render: ->
-    {words} = @props
     <div>
       <h1><%= basename %></h1>
-      <ul className="words">
-        {
-          <li className="word" key={word._id}>{word.text}</li> for word in words
-        }
-      </ul>
+      <WordList />
     </div>
 
-WelcomePage = provideContext connectToStores WelcomePage, ['WordStore'], (stores) ->
-  return {
-    words: stores.WordStore.getAll()
-  }
+WelcomePage = provideContext WelcomePage
 
 module.exports = WelcomePage
 
