@@ -1,6 +1,6 @@
 {
   "name": "generator-goodeggs-app",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Yeoman generator for an application following Good Eggs conventions",
   "keywords": [
     "yeoman-generator",
