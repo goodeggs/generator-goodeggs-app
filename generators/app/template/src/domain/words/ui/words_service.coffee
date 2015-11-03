@@ -1,13 +1,16 @@
 fibrous = require 'fibrous'
+fetchr = require 'app-services/fetchr'
 
-Word = require 'domain/words/models/word'
+Word = require './models/word'
 
 module.exports = wordService =
 
-  name: 'word_service'
+  name: 'words'
 
   read: fibrous (req, resource, params, config) ->
     Word.find().lean().sync.exec()
+
+fetchr.registerService wordService
 
 module.exports = wordService
 

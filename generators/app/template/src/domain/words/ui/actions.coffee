@@ -6,5 +6,5 @@ module.exports = Actions =
   LOAD_ALL_WORDS_FAILURE: 'words.loadAllWords.failure'
 
 exports.loadAllWords = fluxibleAsyncAction Actions.LOAD_ALL_WORDS, (context, payload, cb) ->
-  context.service.read 'word_service', {}, {}, cb
+  context.service.read 'words', {}, {}, cb
 

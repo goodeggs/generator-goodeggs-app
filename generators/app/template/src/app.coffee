@@ -9,7 +9,6 @@ helmet = require 'helmet'
 
 settings = require './server/modules/settings'
 fetchr = require 'app-services/fetchr'
-domainServices = require 'domain-services'
 
 server = null
 app = express()
@@ -40,7 +39,6 @@ app.connect = fibrous ->
   stats.configure settings.stats.token? and settings.stats or {simulate: true}
   logger.configure name: settings.name, level: settings.log.level
   logger.console.redirect() unless settings.env in ['development', 'test']
-  domainServices.registerAll(fetchr)
   stats.sync.start()
   mongooseConnectionManager.create(name, dbSettings) for name, dbSettings of settings.mongo
   mongooseConnectionManager.sync.connect()
