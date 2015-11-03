@@ -1,7 +1,7 @@
 express = require 'express'
 
 layout = require '../../server/modules/layout'
-loadAllWords = require 'ui-actions/load_all_words'
+{loadAllWords} = require('domain/words').Actions
 
 class Page
   @getInstance: (requirePath) ->

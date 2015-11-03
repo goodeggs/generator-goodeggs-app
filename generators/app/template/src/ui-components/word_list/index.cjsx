@@ -1,6 +1,6 @@
 React = require 'react'
 {connectToStores} = require 'fluxible/addons'
-loadAllWords = require 'ui-actions/load_all_words'
+{loadAllWords} = require('domain/words').Actions
 
 class WordList extends React.Component
   @propTypes:

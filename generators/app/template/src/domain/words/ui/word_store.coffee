@@ -1,5 +1,5 @@
 {BaseStore} = require 'fluxible/addons'
-Actions = require 'ui-actions'
+Words = require 'domain/words'
 _ = require 'lodash'
 
 class WordStore extends BaseStore
@@ -7,7 +7,7 @@ class WordStore extends BaseStore
   @storeName: 'WordStore'
 
   @handlers:
-    "#{Actions.LOAD_ALL_WORDS_SUCCESS}": 'onLoadAllWordsSuccess'
+    "#{Words.Actions.LOAD_ALL_WORDS_SUCCESS}": 'onLoadAllWordsSuccess'
 
   constructor: (dispatcher) ->
     super
