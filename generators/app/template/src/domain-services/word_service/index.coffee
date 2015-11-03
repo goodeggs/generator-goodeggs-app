@@ -1,5 +1,6 @@
 fibrous = require 'fibrous'
-Word = require 'domain-models/word'
+
+Word = require 'domain/words/models/word'
 
 module.exports = wordService =
 

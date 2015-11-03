@@ -4,5 +4,5 @@ Promise.setScheduler setImmediate # fix for sinon.useFakeTimers
 
 module.exports = Factories = {}
 
-Factories.word = unionized.mongooseFactory require('domain-models/word')
+Factories.word = unionized.mongooseFactory require('domain/words/models/word')
 
