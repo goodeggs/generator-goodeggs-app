@@ -1,13 +1,14 @@
 {BaseStore} = require 'fluxible/addons'
-Words = require 'domain/words'
 _ = require 'lodash'
+
+Actions = require './actions'
 
 class WordStore extends BaseStore
 
   @storeName: 'WordStore'
 
   @handlers:
-    "#{Words.Actions.LOAD_ALL_WORDS_SUCCESS}": 'onLoadAllWordsSuccess'
+    "#{Actions.LOAD_ALL_WORDS_SUCCESS}": 'onLoadAllWordsSuccess'
 
   constructor: (dispatcher) ->
     super

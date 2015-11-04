@@ -1,7 +1,7 @@
 fibrous = require 'fibrous'
 fetchr = require 'app-services/fetchr'
 
-Word = require './models/word'
+Word = require '../models/word'
 
 module.exports = wordService =
 

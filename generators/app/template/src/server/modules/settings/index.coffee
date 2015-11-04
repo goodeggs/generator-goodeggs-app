@@ -79,5 +79,5 @@ settings.set 'mongo.<%= basename %>.options',
 
 settings.validate()
 
-module.exports = settings.root()
+module.exports = settings.getProperties()
 
