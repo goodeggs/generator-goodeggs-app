@@ -13,18 +13,16 @@ fetchr = require 'app-services/fetchr'
 server = null
 app = express()
 
+app.use logger.middleware.request
 app.use helmet.hidePoweredBy()
+app.use assets.middleware()
 app.use helmet.noCache()
 app.use helmet.frameguard()
-
-app.use logger.middleware.request
-app.use assets.middleware()
 app.use bodyParser.urlencoded(extended: true)
 app.use bodyParser.json()
-
 app.use fetchr.getXhrPath(), fetchr.getMiddleware()
-
 app.use fibrous.middleware
+
 # your app handlers go here
 app.use require('./ui-pages/welcome_page/controller')
 
