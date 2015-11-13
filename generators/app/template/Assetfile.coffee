@@ -15,7 +15,6 @@ module.exports =
           'fluxible'
           'fluxible/addons'
           'fluxible-plugin-fetchr'
-          'keymirror'
         ]
         # prepend: same args as gulp.src
         # append: ditto

@@ -18,7 +18,6 @@
     "goodeggs-stats": "*",
     "gulp": "*",
     "helmet": "^0.10.0",
-    "keymirror": "^0.1.1",
     "lodash": "^3.7.0",
     "once-upon": "*",
     "mongoose": "^4.0.2",
