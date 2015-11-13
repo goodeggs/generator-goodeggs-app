@@ -6,6 +6,7 @@
     "body-parser": "*",
     "broquire": "^0.3.0",
     "coffee-script": "^1.9.2",
+    "compression": "^1.6.0",
     "convict": "*",
     "express": "*",
     "fibers": "*",

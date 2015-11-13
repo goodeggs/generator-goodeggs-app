@@ -6,6 +6,7 @@ stats = require 'goodeggs-stats'
 assets = require 'goodeggs-assets'
 express = require 'express'
 helmet = require 'helmet'
+compression = require 'compression'
 
 settings = require './server/modules/settings'
 fetchr = require 'app-services/fetchr'
@@ -15,6 +16,7 @@ app = express()
 
 app.use logger.middleware.request
 app.use helmet.hidePoweredBy()
+app.use compression()
 app.use assets.middleware()
 app.use helmet.noCache()
 app.use helmet.frameguard()
