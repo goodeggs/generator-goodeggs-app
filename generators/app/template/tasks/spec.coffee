@@ -59,7 +59,7 @@ gulp.task 'spec', (done) ->
 
 gulp.task 'spec:shared', (done) ->
   gutil = require 'gulp-util'
-  src = gutil.env.file or 'src/**/spec.shared.coffee'
+  src = gutil.env.file or 'src/**/{*.,}spec.shared.coffee'
   gutil.log "Running '#{gutil.colors.cyan('spec:shared')}' with #{gutil.colors.magenta('Karma')}"
   karma src, (err) ->
     return done(err) if err?
@@ -68,16 +68,16 @@ gulp.task 'spec:shared', (done) ->
 
 gulp.task 'spec:karma', (done) ->
   gutil = require 'gulp-util'
-  src = gutil.env.file or 'src/**/spec.karma.coffee'
+  src = gutil.env.file or 'src/**/{*.,}spec.karma.coffee'
   karma src, done
 
 gulp.task 'spec:node', (done) ->
   gutil = require 'gulp-util'
-  src = gutil.env.file or 'src/**/spec.node.coffee'
+  src = gutil.env.file or 'src/**/{*.,}spec.node.coffee'
   mocha src, done
 
 gulp.task 'spec:e2e', (done) ->
   gutil = require 'gulp-util'
-  src = gutil.env.file or 'src/**/spec.e2e.coffee'
+  src = gutil.env.file or 'src/**/{*.,}spec.e2e.coffee'
   mocha src, timeout: 30000, done
 
