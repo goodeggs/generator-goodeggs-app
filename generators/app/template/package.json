@@ -23,7 +23,7 @@
     "lodash": "^3.7.0",
     "once-upon": "*",
     "mongoose": "^4.0.2",
-    "mongoose-connection-manager": "^0.1.2",
+    "mongoose-connection-manager": "^1.1.1",
     "teacup": "1.2.0",
     "react": "^0.13.2",
     "coffee-react": "^3.1.0",
