@@ -1,6 +1,7 @@
 fibrous = require 'fibrous'
 bodyParser = require 'body-parser'
-mongooseConnectionManager = require 'mongoose-connection-manager'
+mongoose = require 'mongoose'
+mongooseConnectionManager = require('mongoose-connection-manager')(mongoose)
 logger = require 'goodeggs-logger'
 stats = require 'goodeggs-stats'
 assets = require 'goodeggs-assets'
@@ -40,6 +41,7 @@ app.connect = fibrous ->
   logger.configure name: settings.name, level: settings.log.level
   logger.console.redirect() unless settings.env in ['development', 'test']
   stats.sync.start()
+  mongooseConnectionManager.setLogger(logger)
   mongooseConnectionManager.create(name, dbSettings) for name, dbSettings of settings.mongo
   mongooseConnectionManager.sync.connect()
   # connect to other services here
